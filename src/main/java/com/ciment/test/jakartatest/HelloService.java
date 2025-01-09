@@ -1,8 +1,9 @@
 package com.ciment.test.jakartatest;
 
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+
 import co.elastic.apm.api.Traced;
-import jakarta.ejb.LocalBean;
-import jakarta.ejb.Stateless;
 
 @Stateless
 @LocalBean

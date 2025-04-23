@@ -1,7 +1,6 @@
 package com.ciment.test.jakartatest;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
 
 import jakarta.annotation.Resource;
 import jakarta.ejb.LocalBean;
@@ -39,7 +38,7 @@ public class HelloResource {
     @Produces("text/plain")
     public void helloAsync(@Suspended AsyncResponse response) {
 
-        CompletableFuture.supplyAsync(()-> "Hello, World! - ASYNC", mes)
+        CompletableFuture.supplyAsync(()->  helloService.traceHelloMethod()+" - ASYNC", mes)
                 .handle((asyncResponse, throwable) -> {
             if (throwable != null) {
                 response.resume(throwable);

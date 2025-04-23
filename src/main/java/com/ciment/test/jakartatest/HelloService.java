@@ -1,6 +1,7 @@
 package com.ciment.test.jakartatest;
 
-import co.elastic.apm.api.Traced;
+import io.opentelemetry.api.trace.Span;
+import io.opentelemetry.instrumentation.annotations.WithSpan;
 import jakarta.ejb.LocalBean;
 import jakarta.ejb.Stateless;
 
@@ -9,9 +10,9 @@ import jakarta.ejb.Stateless;
 public class HelloService {
 
 
-    @Traced
+    @WithSpan
     public String traceHelloMethod() {
-        return "Hello, World!";
+        return "Hello, World! " + Span.current().getSpanContext().getTraceId();
     }
 
 }

@@ -2,11 +2,9 @@ package com.ciment.test.jakartatest;
 
 import io.opentelemetry.api.trace.Span;
 import io.opentelemetry.instrumentation.annotations.WithSpan;
-import jakarta.ejb.LocalBean;
-import jakarta.ejb.Stateless;
+import jakarta.enterprise.context.ApplicationScoped;
 
-@Stateless
-@LocalBean
+@ApplicationScoped
 public class HelloService {
 
 

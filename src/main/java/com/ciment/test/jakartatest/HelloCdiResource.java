@@ -3,8 +3,6 @@ package com.ciment.test.jakartatest;
 import java.util.concurrent.CompletableFuture;
 
 import jakarta.annotation.Resource;
-import jakarta.ejb.LocalBean;
-import jakarta.ejb.Stateless;
 import jakarta.enterprise.concurrent.ManagedExecutorService;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;

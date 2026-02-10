@@ -1,6 +1,5 @@
 package com.ciment.test.jakartatest;
 
-import co.elastic.apm.api.CaptureSpan;
 import co.elastic.apm.api.Traced;
 import jakarta.ejb.LocalBean;
 import jakarta.ejb.Stateless;
@@ -10,7 +9,7 @@ import jakarta.ejb.Stateless;
 public class HelloService {
 
 
-    @CaptureSpan
+    @Traced
     public String traceHelloMethod() {
         return "Hello, World!";
     }

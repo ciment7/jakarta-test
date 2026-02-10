@@ -2,7 +2,7 @@ services:
   payara:
     build:
       context: .
-      dockerfile: Dockerfile-edot
+      dockerfile: Dockerfile-elastic-agent
     ports:
       - "8080:8080"
       - "4848:4848"

@@ -1,0 +1,32 @@
+FROM payara/server-full:7.2026.1
+
+ENV ELASTIC_APM_AGENT_VERSION=elastic-apm-agent-1.55.4.jar
+
+ENV APM_SERVICE_NAME=jakarta-test
+ENV APM_SERVER_URLS=http://apm-server:8200
+
+# Copy the war file to the deployment directory
+COPY lib/${ELASTIC_APM_AGENT_VERSION} ${PAYARA_DIR}/glassfish/lib/
+
+
+USER payara
+
+RUN ${PAYARA_DIR}/bin/asadmin start-domain ${DOMAIN_NAME} && \
+    ${PAYARA_DIR}/bin/asadmin --user ${ADMIN_USER} --passwordfile=$PASSWORD_FILE create-jvm-options -Delastic.apm.cloud_provider=NONE && \
+    ${PAYARA_DIR}/bin/asadmin --user ${ADMIN_USER} --passwordfile=$PASSWORD_FILE create-jvm-options -Delastic.apm.server_urls=\$\{ENV\=APM_SERVER_URLS\} && \
+    ${PAYARA_DIR}/bin/asadmin --user ${ADMIN_USER} --passwordfile=$PASSWORD_FILE create-jvm-options -Delastic.apm.service_name=\$\{ENV\=APM_SERVICE_NAME\} && \
+    ${PAYARA_DIR}/bin/asadmin --user ${ADMIN_USER} --passwordfile=$PASSWORD_FILE create-jvm-options -Dotel.sdk.disabled=true && \
+    ${PAYARA_DIR}/bin/asadmin --user ${ADMIN_USER} --passwordfile=$PASSWORD_FILE create-jvm-options -Delastic.apm.application_packages=${APM_APPLICATION_PACKAGES} && \
+    ${PAYARA_DIR}/bin/asadmin --user ${ADMIN_USER} --passwordfile=$PASSWORD_FILE create-jvm-options -Delastic.apm.disable_instrumentations=opentelemetry && \
+    # after upgrading to payara 7 - transaction.name doesn't work properly without this setting \
+    # in apm we see EJB Resources as transaction name like this - _EJB31_Generated__HelloResource__Intf____Bean__#hello, please keep use_jaxrs_path_as_transaction_name=true
+    ${PAYARA_DIR}/bin/asadmin --user ${ADMIN_USER} --passwordfile=$PASSWORD_FILE create-jvm-options -Delastic.apm.use_jaxrs_path_as_transaction_name=true && \
+    ${PAYARA_DIR}/bin/asadmin --user ${ADMIN_USER} --passwordfile=$PASSWORD_FILE create-jvm-options -javaagent\\:\$\{com.sun.aas.installRoot\}/lib/${ELASTIC_APM_AGENT_VERSION} && \
+    ${PAYARA_DIR}/bin/asadmin stop-domain ${DOMAIN_NAME}
+
+
+
+COPY target/jakarta-test.war /opt/payara/deployments
+
+
+

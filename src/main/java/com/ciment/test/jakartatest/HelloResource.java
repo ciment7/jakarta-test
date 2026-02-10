@@ -1,7 +1,6 @@
 package com.ciment.test.jakartatest;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
 
 import jakarta.annotation.Resource;
 import jakarta.ejb.LocalBean;

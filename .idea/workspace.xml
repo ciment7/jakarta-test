@@ -4,24 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="367ae079-f0f5-448f-b759-f115c4fb8207" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ciment/test/jakartatest/HelloApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ciment/test/jakartatest/HelloResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ciment/test/jakartatest/HelloService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ciment/test/jakartatest/TraceIdHeaderResponseFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/beans.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+    <list default="true" id="367ae079-f0f5-448f-b759-f115c4fb8207" name="Changes" comment="elastic apm agent configuration">
+      <change afterPath="$PROJECT_DIR$/lib/elastic-otel-javaagent-1.9.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile-edot" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile-edot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_curls_in_loop.sh" beforeDir="false" afterPath="$PROJECT_DIR$/run_curls_in_loop.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ciment/test/jakartatest/HelloCdiResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ciment/test/jakartatest/HelloCdiResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ciment/test/jakartatest/HelloCdiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ciment/test/jakartatest/HelloCdiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ciment/test/jakartatest/HelloResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ciment/test/jakartatest/HelloResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ciment/test/jakartatest/HelloService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ciment/test/jakartatest/HelloService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ciment/test/jakartatest/TraceIdHeaderResponseFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ciment/test/jakartatest/TraceIdHeaderResponseFilter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +33,15 @@
       </list>
     </option>
   </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master-elastic-apm-agent" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -77,6 +78,13 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
@@ -84,7 +92,7 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2rLV937FOSrQyx0lJ9Q7CxnIGuR" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -93,26 +101,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Maven.clean install.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;&lt;unknown&gt;&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.clean install.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHELLCHECK.PATH": "/Users/jozefhriadel/Library/Application Support/JetBrains/IntelliJIdea2025.3/plugins/Shell Script/shellcheck",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/jozefhriadel/IdeaProjects/jakarta-test/lib",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.general",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.ciment.test.jakartatest" />
     </key>
@@ -144,7 +160,7 @@
         </ENTRIES>
       </extension>
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="9008" />
+        <option name="DEBUG_PORT" value="9009" />
       </RunnerSettings>
       <RunnerSettings RunnerId="JProfiler">
         <option name="jreHome" value="$USER_HOME$/Library/Java/JavaVirtualMachines/azul-21.0.5/Contents/Home" />
@@ -314,12 +330,52 @@
       <workItem from="1736338189159" duration="3524000" />
       <workItem from="1736345255334" duration="277000" />
     </task>
+    <task id="LOCAL-00001" summary="feat: Add Docker Compose for Payara with ELK stack and create GEMINI.md&#10;&#10;This commit introduces a  file to facilitate running the Jakarta EE application with Payara and integrating it with an ELK (Elasticsearch, Kibana, APM Server) stack for distributed tracing and monitoring.&#10;&#10;Additionally, a  file has been created to provide a comprehensive overview of the project, including build and run instructions, and development conventions, for future reference.">
+      <option name="closed" value="true" />
+      <created>1770727417267</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1770727417267</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: Add Docker Compose for Payara with ELK stack and create GEMINI.md&#10;&#10;This commit introduces a  file to facilitate running the Jakarta EE application with Payara and integrating it with an ELK (Elasticsearch, Kibana, APM Server) stack for distributed tracing and monitoring.&#10;&#10;Additionally, a  file has been created to provide a comprehensive overview of the project, including build and run instructions, and development conventions, for future reference.">
+      <option name="closed" value="true" />
+      <created>1770727572210</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1770727572210</updated>
+    </task>
+    <task id="LOCAL-00003" summary="elastic apm agent configuration">
+      <option name="closed" value="true" />
+      <created>1770730227246</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1770730227246</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -332,17 +388,23 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="feat: Add Docker Compose for Payara with ELK stack and create GEMINI.md&#10;&#10;This commit introduces a  file to facilitate running the Jakarta EE application with Payara and integrating it with an ELK (Elasticsearch, Kibana, APM Server) stack for distributed tracing and monitoring.&#10;&#10;Additionally, a  file has been created to provide a comprehensive overview of the project, including build and run instructions, and development conventions, for future reference." />
+    <MESSAGE value="elastic apm agent configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="elastic apm agent configuration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ciment/test/jakartatest/TraceIdHeaderResponseFilter.java</url>
-          <line>18</line>
+          <line>16</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

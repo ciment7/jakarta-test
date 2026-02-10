@@ -1,17 +1,35 @@
-# how to package and deploy jakarta test application on Payara to test distributed tracing 
-- [download payara 6.2024.12  (Full)](https://www.payara.fish/downloads/payara-platform-community-edition/) 
-- run ```mvn clean install```
-- copy application - jakarta-test.war to autodeploy folder on payara
-- send GET request via curl ```curl --location 'http://localhost:8080/jakarta-test/api/hello-world```
+# Jakarta Test Application
 
-I added this jvm options to domain.xml
+This is a Jakarta EE application that exposes a simple REST API. It uses Maven as the build tool and is designed to be
+deployed on a Payara server. The application includes Elastic APM for distributed tracing.
+
+## Building and Running
+
+**Docker**
+
+- Run the `build.sh` script:
+  ```bash
+  ./build.sh
+  ```
+- This script will build the Maven project, create a Docker image, and start the application using `docker-compose`.
+
+## Testing Endpoints
+
+Once the application is running, you can send a test request to the following endpoints:
+
+- `http://localhost:8080/jakarta-test/api/hello-world`
+- `http://localhost:8080/jakarta-test/api/hello-world/async`
+- `http://localhost:8080/jakarta-test/api/cdi/hello-world`
+- `http://localhost:8080/jakarta-test/api/cdi/hello-world/async`
+
+You can use `curl` to test the endpoints:
+
+```bash
+curl --location 'http://localhost:8080/jakarta-test/api/hello-world'
 ```
-<jvm-options>-Delastic.apm.application_packages=com.ciment.test</jvm-options>
-<jvm-options>-Delastic.apm.service_name=jakarta-test</jvm-options>
-<jvm-options>-Delastic.apm.log_sending=true</jvm-options>
-<jvm-options>-Delastic.apm.server_urls=http://localhost:8200</jvm-options>
-<jvm-options>-Delastic.apm.environment=dev</jvm-options>
-<jvm-options>-javaagent:${com.sun.aas.installRoot}/lib/elastic-apm-agent-1.52.1.jar</jvm-options>
 
+Alternatively, you can run the provided script to send requests to all endpoints in a loop:
 
+```bash
+./run_curls_in_loop.sh
 ```

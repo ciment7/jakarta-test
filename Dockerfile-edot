@@ -1,0 +1,29 @@
+FROM payara/server-full:7.2026.1
+
+ENV EDOT_APM_AGENT_VERSION=elastic-otel-javaagent-1.8.0.jar
+
+ENV APM_SERVICE_NAME=jakarta-test
+ENV APM_SERVER_URLS=http://apm-server:8200
+ENV OTEL_RESOURCE_ATTRIBUTES=deployment.environment.name=test
+ENV ELASTIC_OTEL_JAVAAGENT_LOG_LEVEL=INFO
+
+# Copy the war file to the deployment directory
+COPY lib/${EDOT_APM_AGENT_VERSION} ${PAYARA_DIR}/glassfish/lib/
+
+
+USER payara
+
+RUN ${PAYARA_DIR}/bin/asadmin start-domain ${DOMAIN_NAME} && \
+    ${PAYARA_DIR}/bin/asadmin --user ${ADMIN_USER} --passwordfile=$PASSWORD_FILE set-requesttracing-configuration --enabled=false --dynamic=true && \
+    ${PAYARA_DIR}/bin/asadmin --user ${ADMIN_USER} --passwordfile=$PASSWORD_FILE create-jvm-options -javaagent\\:\$\{com.sun.aas.installRoot\}/lib/${EDOT_APM_AGENT_VERSION} && \
+    ${PAYARA_DIR}/bin/asadmin --user ${ADMIN_USER} --passwordfile=$PASSWORD_FILE create-jvm-options -Delastic.otel.inferred.spans.enabled=false && \
+    ${PAYARA_DIR}/bin/asadmin --user ${ADMIN_USER} --passwordfile=$PASSWORD_FILE create-jvm-options -Dotel.service.name=\$\{ENV\=APM_SERVICE_NAME\} && \
+    ${PAYARA_DIR}/bin/asadmin --user ${ADMIN_USER} --passwordfile=$PASSWORD_FILE create-jvm-options -Dotel.exporter.otlp.endpoint=\$\{ENV\=APM_SERVER_URLS\} &&\
+    ${PAYARA_DIR}/bin/asadmin stop-domain ${DOMAIN_NAME}
+
+
+
+COPY target/jakarta-test.war /opt/payara/deployments
+
+
+

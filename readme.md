@@ -15,3 +15,22 @@ I added this jvm options to domain.xml
 
 
 ```
+
+## Docker Build and Run
+
+To build the project and run it in a Docker container, use the `build.sh` script:
+
+```bash
+./build.sh
+```
+
+This will:
+1. Build the Maven project and create the `.war` file.
+2. Build the Docker image using the provided `Dockerfile`.
+3. Start the application using `docker-compose`.
+
+You can then send a test request using:
+```bash
+curl --location 'http://localhost:8080/jakarta-test/api/hello-world'
+curl --location 'http://localhost:8080/jakarta-test/api/hello-world/async'
+```

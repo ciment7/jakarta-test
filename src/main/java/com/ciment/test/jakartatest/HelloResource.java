@@ -39,7 +39,10 @@ public class HelloResource {
     @Produces("text/plain")
     public void helloAsync(@Suspended AsyncResponse response) {
 
-        CompletableFuture.supplyAsync(()-> "Hello, World! - ASYNC", mes)
+        CompletableFuture.supplyAsync(()->{
+                            helloService.traceHelloMethod();
+                             return "Hello, World! - ASYNC";
+                         } , mes)
                 .handle((asyncResponse, throwable) -> {
             if (throwable != null) {
                 response.resume(throwable);
